@@ -7,7 +7,7 @@ html{
 body{
     font-family: 'Roboto Condensed', sans-serif;
     background-color: #c5c5c5;
-    height:  20em;
+    height:  50em;
 }
 
 a{
@@ -24,7 +24,12 @@ header{
     align-items: center;
     padding: 0px 10%;
     background-color: #2A2A2A;
-    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-bottom: 300px;
+    z-index: 2;
 }
 
 .logo{
@@ -49,7 +54,7 @@ nav ul li a
     padding: 10x 20px;
 }
 
-li a:hover
+nav li a:hover
 {
     color: rgb(172, 172, 172);
     -webkit-transition: color 250ms linear;
@@ -57,7 +62,9 @@ li a:hover
     transition: color 250ms linear;
 }
 
-
+.main-content{
+    margin-top: 5%;
+}
 .center{
     margin-left: auto;
     margin-right: auto;
@@ -68,9 +75,27 @@ li a:hover
     max-width: 500px;
     width: 100%;
     height: auto;
+    align-items: center;
 }
 
 .item img{
     width: 100%;
     height: auto;
+}
+
+.logo_img{
+    width: 100%;
+    max-width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.bottom-bar{
+
 }
