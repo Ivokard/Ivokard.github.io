@@ -6,10 +6,20 @@ html{
 
 body{
     font-family: 'Roboto Condensed', sans-serif;
-    background-color: #c5c5c5;
+    background-color: #ffffff;
     height:  50em;
 }
 
+body, html {
+    margin-left:10%;
+    margin-right:10%;
+    margin-bottom:1%;
+    margin-top:1%;
+}
+
+section, table{
+
+}
 a{
     text-decoration: none;
 }
@@ -28,8 +38,12 @@ header{
     top: 0;
     left: 0;
     width: 100%;
-    margin-bottom: 300px;
-    z-index: 2;
+    margin-bottom: 0x;
+    z-index: 9999;
+}
+nav{
+    top: 0;
+    z-index: 1;    
 }
 
 .logo{
@@ -62,12 +76,11 @@ nav li a:hover
     transition: color 250ms linear;
 }
 
+
 .main-content{
-    margin-top: 5%;
+    margin-top: 50px;
 }
 .center{
-    margin-left: auto;
-    margin-right: auto;
     text-align: center;
 }
 
@@ -94,8 +107,108 @@ nav li a:hover
     align-items: center;
 }
 
+section{
+    margin-top: 100x;
+}
+
+.section1
+{
+    background-color: rgb(255, 255, 255);
+}
+
+.game-images{
+    max-width: 500px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    -webkit-filter: brightness(100%);
+}
 
 
-.bottom-bar{
 
+
+.game-images:hover  {
+    transform: scale(0.8);
+    -webkit-filter: brightness(70%);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+
+
+.about{
+    background-color: #2A2A2A;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.contenedor-botones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+  
+  .button-circular {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f8f8f8;
+    margin-right: 5px; /* Añade un margen derecho opcional entre los botones */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .button-circular img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+    .button-circular:hover
+  {
+    color: rgb(104, 104, 104);
+    -webkit-transition: color 250ms linear;
+    -ms-transition: color 250ms linear;
+    transition: color 250ms linear;
+  }
+
+
+  
+.button-images{
+    width: 80%;
+    height:80%;
+    transition: transform 0.3s ease;
+    -webkit-filter: brightness(100%);
+}
+
+.button-images:hover  {
+    transform: scale(0.75);
+    -webkit-filter: brightness(70%);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.gamespage-img{
+    width: 100%;
+    max-width: 1000px;
+}
+
+.gamespage-txt{
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
