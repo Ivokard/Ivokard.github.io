@@ -15,11 +15,7 @@ body, html {
     margin-right:10%;
     margin-bottom:1%;
     margin-top:1%;
-}
-
-section, table{
-
-}
+    }
 a{
     text-decoration: none;
 }
@@ -81,6 +77,8 @@ nav li a:hover
     margin-top: 50px;
 }
 .center{
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
 }
 
@@ -118,8 +116,7 @@ section{
 
 .game-images{
     max-width: 500px;
-    position: relative;
-    overflow: hidden;
+
     transition: transform 0.3s ease;
     -webkit-filter: brightness(100%);
 }
