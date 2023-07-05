@@ -10,18 +10,8 @@ body{
     height:  50em;
 }
 
-body, html {
-    margin-left:10%;
-    margin-right:10%;
-    margin-bottom:1%;
-    margin-top:1%;
-    }
 a{
     text-decoration: none;
-}
-
-li{
-    list-style-type: none;
 }
 
 header{
@@ -37,27 +27,30 @@ header{
     margin-bottom: 0x;
     z-index: 9999;
 }
-nav{
-    top: 0;
-    z-index: 1;    
-}
+
 
 .logo{
     color: #FFF;
     font-weight: 1000;
 }
 
-nav ul{
+header a {
+    text-align: center;
+}
+
+header nav ul{
     display: flex;
     flex-direction: row;
 }
 
-nav ul li{
+header nav ul li{
+    display: inline-block;
     margin-left: 10px;
     margin-right: 10px;
+    text-align: center;
 }
 
-nav ul li a
+header nav ul li a
 {
     color: #FFF;
     display: block;
@@ -72,10 +65,15 @@ nav li a:hover
     transition: color 250ms linear;
 }
 
+.navbar{
+    text-align: center;
+    font-weight: 30000;
+}
 
 .main-content{
     margin-top: 50px;
 }
+
 .center{
     margin-left: auto;
     margin-right: auto;
@@ -111,17 +109,28 @@ section{
 
 .section1
 {
-    background-color: rgb(255, 255, 255);
+    position: relative;
+    overflow: hidden;
+    color: #FFF;
 }
+
+.section1 video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    height:auto;
+    width:auto;
+    z-index: -100;
+    filter: blur(4px);
+  }
 
 .game-images{
     max-width: 500px;
-
     transition: transform 0.3s ease;
     -webkit-filter: brightness(100%);
 }
-
-
 
 
 .game-images:hover  {
@@ -134,6 +143,12 @@ section{
     transition: all 1s ease;
 }
 
+
+.videos{
+    max-width: 500px;
+    transition: transform 0.3s ease;
+    -webkit-filter: brightness(100%);
+}
 
 
 .about{
@@ -169,7 +184,7 @@ section{
     border-radius: 50%;
   }
   
-    .button-circular:hover
+  .button-circular:hover
   {
     color: rgb(104, 104, 104);
     -webkit-transition: color 250ms linear;
