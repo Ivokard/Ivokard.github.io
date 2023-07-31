@@ -2,6 +2,8 @@
 
 html{
     scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+
 }
 
 body{
@@ -10,69 +12,81 @@ body{
     height:  50em;
 }
 
-a{
-    text-decoration: none;
+p{
+    font-size: 20px;
 }
 
-header{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px 10%;
-    background-color: #2A2A2A;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    margin-bottom: 0x;
-    z-index: 9999;
+td {
+    border-style : hidden;
+   }
+
+.titlegame{
+    margin-top: 5%;
+    font-size: 100px;
 }
 
-
-.logo{
-    color: #FFF;
-    font-weight: 1000;
+.titledesc{
+    font-size: 25px;
 }
 
-header a {
+.margins{
+    margin: 20%;
+}
+.description{
+    margin-left: 30%;
+    margin-right: 30%;
     text-align: center;
 }
 
-header nav ul{
-    display: flex;
-    flex-direction: row;
+.txtjustsections{
+    text-align: justify;
+    font-size: 20px;
 }
 
-header nav ul li{
-    display: inline-block;
-    margin-left: 10px;
-    margin-right: 10px;
-    text-align: center;
+a.anchor {
+
+    top: -250px;
 }
 
-header nav ul li a
-{
-    color: #FFF;
-    display: block;
-    padding: 10x 20px;
+.header-margin{
+    margin-top: 5%;
 }
-
-nav li a:hover
-{
-    color: rgb(172, 172, 172);
-    -webkit-transition: color 250ms linear;
-    -ms-transition: color 250ms linear;
-    transition: color 250ms linear;
-}
-
-.navbar{
-    text-align: center;
-    font-weight: 30000;
+.txt-margintop{
+    margin-top: 10%;
 }
 
 .main-content{
     margin-top: 50px;
 }
+.section-top{
+    margin-top: 2%;
+}
+
+.c-item {
+    height:25%;
+}
+
+.c-img{
+    height: 40%;
+    object-fit: cover;
+}
+
+.c-size{
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    height: 40%;
+}
+
+.c-sizeGames{
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    height: 40%;
+}
+
 
 .center{
     margin-left: auto;
@@ -102,11 +116,6 @@ nav li a:hover
     justify-content: center;
     align-items: center;
 }
-
-section{
-    margin-top: 100x;
-}
-
 .section1
 {
     position: relative;
@@ -124,7 +133,30 @@ section{
     width:auto;
     z-index: -100;
     filter: blur(4px);
-  }
+    filter: brightness(50%);
+}
+
+.games-section1
+{
+    position: relative;
+    overflow: hidden;
+    color: #FFF;
+    height: 600px;
+    width: auto;
+}
+.games-section1 video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    height:auto;
+    width:auto;
+    z-index: -100;
+    filter: blur(4px);
+    filter: brightness(50%);
+
+}
 
 .game-images{
     max-width: 500px;
@@ -176,6 +208,20 @@ section{
     justify-content: center;
     align-items: center;
   }
+
+
+  .button-circular2 {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: #f8f8f8;
+    margin-right: 5px; /* Añade un margen derecho opcional entre los botones */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
   
   .button-circular img {
     width: 50%;
@@ -183,16 +229,21 @@ section{
     object-fit: cover;
     border-radius: 50%;
   }
+
+  .button-circular2 img {
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
   
   .button-circular:hover
   {
     color: rgb(104, 104, 104);
-    -webkit-transition: color 250ms linear;
+    -webkit-transition: color 250ms lisnear;
     -ms-transition: color 250ms linear;
     transition: color 250ms linear;
   }
-
-
   
 .button-images{
     width: 80%;
