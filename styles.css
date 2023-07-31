@@ -15,15 +15,13 @@ body{
 p{
     font-size: 20px;
 }
-th td{
-    padding: 15px
-}
+
 th{
-    padding: 15px;
+    padding: 5px;
 }
 td {
     border-style : hidden;
-    padding: 10px
+    padding: 5px
 
 }
 
@@ -32,9 +30,29 @@ td {
     font-size: 100px;
 }
 
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .titlegame {
+        margin-top: 15%;
+        font-size: 50px;
+    }
+  }
+
+
+
 .titledesc{
     font-size: 25px;
 }
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .titledesc {
+        font-size: 15px;
+    }
+  }
+
+
 
 .margins{
     margin: 20%;
@@ -58,6 +76,15 @@ td {
     text-align: justify;
     font-size: 20px;
 }
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .txtjustsections {
+        font-size: 15px;
+    }
+  }
+
+
 
 a.anchor {
 
@@ -206,7 +233,7 @@ a.anchor {
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     .game-images {
-        max-width: 250px;
+        max-width: 200px;
     }
   }
 
