@@ -15,10 +15,17 @@ body{
 p{
     font-size: 20px;
 }
-
+th td{
+    padding: 15px
+}
+th{
+    padding: 15px;
+}
 td {
     border-style : hidden;
-   }
+    padding: 10px
+
+}
 
 .titlegame{
     margin-top: 5%;
@@ -111,6 +118,22 @@ a.anchor {
     text-align: center;
 }
 
+.centerGameDesc{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .centerGameDesc {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+  }
+
+
+
 .item{
     max-width: 500px;
     width: 100%;
@@ -178,6 +201,15 @@ a.anchor {
     transition: transform 0.3s ease;
     -webkit-filter: brightness(100%);
 }
+
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .game-images {
+        max-width: 250px;
+    }
+  }
+
 
 
 .game-images:hover  {
