@@ -17,12 +17,11 @@ p{
 }
 
 th{
-    padding: 5px;
+    padding: 10px;
 }
 td {
     border-style : hidden;
-    padding: 5px
-
+    padding: 5px;
 }
 
 .titlegame{
@@ -294,6 +293,7 @@ a.anchor {
     justify-content: center;
     align-items: center;
   }
+
   
   
   
