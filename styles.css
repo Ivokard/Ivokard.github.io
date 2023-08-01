@@ -24,6 +24,18 @@ td {
     padding: 5px;
 }
 
+tr{
+    border-style: hidden;
+}
+
+@media screen and (max-width:  768px) {
+    td {
+      display: block;
+      margin: 2px;
+    }
+  }
+
+
 .titlegame{
     margin-top: 5%;
     font-size: 100px;
