@@ -212,6 +212,8 @@ a.anchor {
     filter: brightness(50%);
 }
 
+
+
 .games-section1
 {
     position: relative;
@@ -232,6 +234,14 @@ a.anchor {
     filter: blur(4px);
     filter: brightness(50%);
 
+}
+
+.games-section1img {
+    position: absolute;
+    left: 0;
+    z-index: -100;
+    filter: blur(4px);
+    filter: brightness(50%);
 }
 
 .game-images{
