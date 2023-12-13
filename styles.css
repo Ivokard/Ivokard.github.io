@@ -238,11 +238,17 @@ a.anchor {
 
 .games-section1img {
     position: absolute;
+    top: 0;
     left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    height:auto;
+    width:auto;
     z-index: -100;
     filter: blur(4px);
     filter: brightness(50%);
 }
+
 
 .game-images{
     max-width: 500px;
