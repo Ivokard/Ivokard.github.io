@@ -32,7 +32,7 @@ tr{
 @media screen and (max-width:  768px) {
     td,tr,th {
       display: block;
-      margin: auto !important;
+      margin: auto;
     }
   }
 
@@ -44,7 +44,7 @@ tr{
 
 
 @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
+    /* For phones: */
     .titlegame {
         margin-top: 15%;
         font-size: 50px;
@@ -58,7 +58,7 @@ tr{
 }
 
 @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
+    /* For phones: */
     .titledesc {
         font-size: 15px;
     }
@@ -76,7 +76,7 @@ tr{
 }
 
 @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
+    /* For phones: */
     .description {
         margin-left: 10%;
         margin-right: 10%;
@@ -90,7 +90,7 @@ tr{
 }
 
 @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
+    /* For phones: */
     .txtjustsections {
         font-size: 15px;
     }
@@ -134,7 +134,7 @@ a.anchor {
 }
 
   @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
+    /* For phones: */
     .c-size {
         width: 100%;
         height: 100%;
@@ -170,7 +170,7 @@ a.anchor {
 }
 
 @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
+    /* For phones: */
     .centerGameDesc {
         width: 100%;
     }
