@@ -1,7 +1,6 @@
 import { FaGithub, FaLinkedin, FaSoundcloud, FaYoutube, FaBandcamp, FaSpotify } from "react-icons/fa6"
-import { IoMail } from "react-icons/io5";
 import { LuInstagram } from "react-icons/lu";
-import { FaTiktok } from "react-icons/fa";
+import { FaItchIo, FaTiktok } from "react-icons/fa";
 
 const Socials = () => {
     return (
@@ -26,6 +25,14 @@ const Socials = () => {
                     className="bg-white text-black p-3 rounded-full hover:bg-gray-300 transition"
                 >
                     <FaGithub size={24} />
+                </a>
+                <a
+                    href="https://ivokard.itch.io"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white text-black p-3 rounded-full hover:bg-gray-300 transition"
+                >
+                    <FaItchIo size={24} />
                 </a>
                 <a
                     href="https://www.tiktok.com/@ivokardmusic"

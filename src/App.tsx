@@ -3,45 +3,71 @@ import { useEffect, useRef, useState } from 'react'
 import Carousel from './Carousel'
 import SplitText from './components/SplitText'
 import Masonry from './components/Masonry/Masonry'
-import NavbarOverlay from './components/NavbarOverlay'
-import { ReactLenis} from 'lenis/react'
+//import NavbarOverlay from './components/NavbarOverlay'
+import { ReactLenis } from 'lenis/react'
 import ProjectLayout from './components/ProjectLayout'
 import IntroSection from './components/IntroSection'
 import Socials from './components/Socials'
 import { FaGooglePlay, FaGlobe, FaItchIo, FaGithub } from 'react-icons/fa'
+
 import gsap from 'gsap'
+import { useTranslation } from 'react-i18next'
+
+const { t } = useTranslation()
 
 const data = [
-  { id: 1, 
-    image: 'images/marble.jpg', 
-    height: 600, 
-    title: 'Marble Race Demo', 
-    description: 'A small game developed on React with three.js. Part of threejs-journey course.', 
-    links: [{ icon: <FaGithub size={24} />, url: "https://github.com/Ivokard/React-Threejs-GameDemo" }] },
+  {
+    id: 1,
+    image: 'images/marble.jpg',
+    height: 600,
+    title: 'Marble Race Demo',
+    description: 'A small game developed on React with three.js. Part of threejs-journey course.',
+    links: [{ icon: <FaGithub size={24} />, url: "https://github.com/Ivokard/React-Threejs-GameDemo" }]
+  },
 
-  { id: 2, 
-    image: 'images/eom.png', 
-    height: 600, 
+  {
+    id: 2,
+    image: 'images/eom.png',
+    height: 600,
     title: 'Edge of Madness',
     description: 'A 2D action game developed with Godot. Defeat the five bosses without losing.',
-    links: [{ icon: <FaItchIo size={24} />, url: "https://morphingames.itch.io/edge-of-madness" }] },
+    links: [{ icon: <FaItchIo size={24} />, url: "https://morphingames.itch.io/edge-of-madness" }]
+  },
+
+  {
+    id: 3,
+    image: 'images/jrj.png',
+    height: 600,
+    title: 'Justas Rejustas',
+    description: 'Get on your horse, grab your lance and shield and get ready to fight exciting duels that will test your combat and strategy skills!',
+    links: [{ icon: <FaItchIo size={24} />, url: "https://morphingames.itch.io/justas-rejustas" }]
+  },
+
+  {
+    id: 4,
+    image: 'images/eom.png',
+    height: 600,
+    title: 'Mix of SFX',
+    description: 'This pack is a mix of samples that I did for gamejams and old projects.',
+    links: [{ icon: <FaItchIo size={24} />, url: "https://ivokard.itch.io/mix-of-sfx" }]
+  },
 
 ]
 
 export default function App() {
   const [navbarOpen, setNavbarOpen] = useState(false)
   const lenisRef = useRef()
-  
+
   useEffect(() => {
     function update(time) {
       lenisRef.current?.lenis?.raf(time * 1000)
     }
-  
+
     gsap.ticker.add(update)
-  
+
     return () => gsap.ticker.remove(update)
   }, [])
-  
+
   return (
     <ReactLenis root options={{ autoRaf: false }} ref={lenisRef} >
       <div className="flex flex-col overflow-x-hidden w-full relative text-center space-y-6 bg-black min-h-screen">

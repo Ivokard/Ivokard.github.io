@@ -11,7 +11,7 @@
 .masonry>div {
   position: absolute;
   will-change: transform, width, height, opacity;
-  padding: 15px;
+  padding: 40px;
 }
 
 .masonry>div>div {

@@ -11,11 +11,15 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ image, title = "", links = [] }) => {
   const [showOverlay, setShowOverlay] = useState(false);
 
+  const toggleOverlay = () => {
+    setShowOverlay((prev) => !prev)
+  }
   return (
     <motion.div
       className="relative overflow-hidden h-[400px] min-w-[400px] bg-slate-400 rounded-xl flex justify-center max-content"
       onHoverStart={() => setShowOverlay(true)}
       onHoverEnd={() => setShowOverlay(false)}
+      onClick = {toggleOverlay}
     >
       <AnimatePresence>
         {showOverlay && (
@@ -38,7 +42,6 @@ const Card: React.FC<CardProps> = ({ image, title = "", links = [] }) => {
               </motion.h2>
             )}
 
-            {/* Links */}
             {links.length > 0 ? (
               links.map((link, index) => (
                 <motion.a
@@ -54,6 +57,7 @@ const Card: React.FC<CardProps> = ({ image, title = "", links = [] }) => {
                     transition: { delay: index * 0.1 },
                   }}
                   exit={{ y: 10, opacity: 0 }}
+                  onClick={(e) => e.stopPropagation()}
                 >
                   {link.icon}
                   <span>{link.label}</span>

@@ -1,3 +1,6 @@
+import React, { useEffect, useRef, useState } from "react"
+import { gsap } from "gsap"
+
 interface ProjectLayoutProps {
   title: string;
   shortDescription: string;
@@ -7,6 +10,38 @@ interface ProjectLayoutProps {
 }
 
 const ProjectLayout: React.FC<ProjectLayoutProps> = ({ title, shortDescription, description, images, links }) => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const overlayRef = useRef<HTMLDivElement | null>(null)
+  const imageRef = useRef<HTMLDivElement | null>(null)
+  
+  const openImage = (src: string) => {
+    setSelectedImage(src)
+  }
+
+  const closeImage = () => {
+    if (overlayRef.current && imageRef.current) {
+      gsap.to(imageRef.current, {
+        scale: 0.8,
+        opacity: 0,
+        duration: 0.3,
+        onComplete: () => {
+          setSelectedImage(null)
+        }
+      })
+      gsap.to(overlayRef.current, {
+        opacity: 0,
+        duration: 0.3
+      })
+    } else {
+      setSelectedImage(null)
+    }
+  }
+  useEffect(() => {
+    if (selectedImage && overlayRef.current && imageRef.current) {
+      gsap.fromTo(overlayRef.current, { opacity: 0 }, { opacity: 1, duration: 0.3 })
+      gsap.fromTo(imageRef.current, { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3 })
+    }
+  }, [selectedImage])
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto p-8 text-left mt-24">
 
@@ -42,6 +77,7 @@ const ProjectLayout: React.FC<ProjectLayoutProps> = ({ title, shortDescription, 
         <img
           src={images[0]}
           alt=""
+          onClick={() => openImage(images[0])}
           className="rounded-lg w-full object-cover"
         />
 
@@ -49,17 +85,40 @@ const ProjectLayout: React.FC<ProjectLayoutProps> = ({ title, shortDescription, 
           <img
             src={images[1]}
             alt=""
+            onClick={() => openImage(images[1])}
             className="rounded-lg w-full object-cover"
           />
           <img
             src={images[2]}
             alt=""
+            onClick={() => openImage(images[2])}
             className="rounded-lg w-full object-cover"
           />
         </div>
       </div>
+     {selectedImage && (
+        <div
+          ref={overlayRef}
+          className="fixed inset-0 bg-black bg-opacity-70 z-50 flex justify-center items-center p-4"
+          onClick={closeImage}
+        >
+          <div
+            ref={imageRef}
+            className="relative bg-white rounded-lg overflow-hidden max-w-3xl w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={closeImage}
+              className="absolute top-2 right-2 text-black text-2xl font-bold hover:text-gray-700"
+            >
+              ✖️
+            </button>
+            <img src={selectedImage} alt="Preview" className="w-full h-auto object-contain" />
+          </div>
+        </div>
+      )}
     </div>
-  );
-};
+  )
+}
 
 export default ProjectLayout;

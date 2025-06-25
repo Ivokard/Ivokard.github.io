@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
-import { useTransition, a, useSpring } from "@react-spring/web";
+import gsap from "gsap";
 
 interface MasonryItem {
   id: string | number;
   height: number;
   image: string;
-  width?: number; // Optional, can be used for aspect ratio
+  width?: number;
   title?: string;
   description?: string;
   links?: { icon: React.ReactNode; url: string }[];
@@ -26,6 +26,9 @@ function Masonry({ data }: MasonryProps) {
   const [columns, setColumns] = useState<number>(2);
   const [selectedItem, setSelectedItem] = useState<MasonryItem | null>(null);
 
+  const ref = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState<number>(0);
+
   useEffect(() => {
     const updateColumns = () => {
       if (window.matchMedia("(min-width: 1500px)").matches) setColumns(2);
@@ -37,9 +40,6 @@ function Masonry({ data }: MasonryProps) {
     window.addEventListener("resize", updateColumns);
     return () => window.removeEventListener("resize", updateColumns);
   }, []);
-
-  const ref = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState<number>(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -54,7 +54,6 @@ function Masonry({ data }: MasonryProps) {
     const heights = new Array(columns).fill(0);
     const gridItems = data.map((child) => {
       const column = heights.indexOf(Math.min(...heights));
-
       const x = (width / columns) * column;
       const y = (heights[column] += child.height / 2) - child.height / 2;
       return {
@@ -68,98 +67,140 @@ function Masonry({ data }: MasonryProps) {
     return [heights, gridItems];
   }, [columns, data, width]);
 
-  const transitions = useTransition(gridItems, {
-    keys: (item) => item.id,
-    from: ({ x, y, width, height }) => ({ x, y, width, height, opacity: 0 }),
-    enter: ({ x, y, width, height }) => ({ x, y, width, height, opacity: 1 }),
-    update: ({ x, y, width, height }) => ({ x, y, width, height }),
-    leave: { height: 0, opacity: 0 },
-    config: { mass: 5, tension: 500, friction: 100 },
-    trail: 25,
-  });
-
-  const modalTransition = useTransition(selectedItem, {
-    from: { opacity: 0, transform: "scale(0.95)" },
-    enter: { opacity: 1, transform: "scale(1)" },
-    leave: { opacity: 0, transform: "scale(0.95)" },
-    config: { tension: 300, friction: 30 },
-  });
+  useEffect(() => {
+    gridItems.forEach((item) => {
+      const el = document.getElementById(`grid-item-${item.id}`);
+      if (el) {
+        gsap.to(el, {
+          x: item.x,
+          y: item.y,
+          width: item.width,
+          height: item.height,
+          opacity: 1,
+          duration: 0.6,
+          ease: "power2.out",
+        });
+      }
+    });
+  }, [gridItems]);
 
   return (
     <>
       <div
         ref={ref}
-        className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto text-left mt-24"
+        className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto text-left mt-24"
         style={{ height: Math.max(...heights) }}
       >
-        {transitions((style, item) => (
-          <a.div
+        {gridItems.map((item) => (
+          <div
             key={item.id}
-            style={style}
-            className="absolute p-[15px] [will-change:transform,width,height,opacity] cursor-pointer"
-            onClick={() => setSelectedItem(item)} 
+            id={`grid-item-${item.id}`}
+            className="absolute p-[15px] opacity-0 cursor-pointer [will-change:transform,width,height,opacity]"
+            onClick={() => setSelectedItem(item)}
           >
             <div className="relative w-full h-full overflow-hidden rounded-[4px] shadow-lg">
               <img
                 src={item.image}
                 alt={item.title}
                 loading="lazy"
-                className="w-full h-full object-cover transition duration-200 ease-in-out hover:brightness-110 hover:scale"
+                className="w-full h-full object-cover transition duration-200 ease-in-out hover:brightness-110"
               />
             </div>
-          </a.div>
+          </div>
         ))}
       </div>
 
-      {modalTransition(
-        (style, item) =>
-          item && (
-            <div
-              className="fixed inset-0 bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50"
-              onClick={() => setSelectedItem(null)}
-            >
-              <a.div
-                style={style}
-                className="bg-black p-6 rounded-lg w-[800px] h-[600px] overflow-hidden relative flex flex-col z-50 text-white"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <button
-                  className="absolute top-2 right-2 text-white text-2xl"
-                  onClick={() => {
-                    requestAnimationFrame(() => setSelectedItem(null));
-                  }}
-                >
-                  ✕
-                </button>
-                <div className="flex-1 overflow-auto space-y-4">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-[300px] object-cover rounded"
-                  />
-                  <h2 className="text-xl font-bold">{item.title}</h2>
-                  <p className="text-shadow-stone-400">{item.description}</p>
-                  {item.links && item.links?.length > 0 && (
-                    <div className="flex justify-center mt-4">
-                      {item.links.map((link, idx) => (
-                        <a
-                          key={idx}
-                          href={link.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="bg-white text-black p-3 rounded-full hover:bg-gray-300 transition"
-                        >
-                          {link.icon}
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </a.div>
-            </div>
-          )
+      {selectedItem && (
+        <Modal item={selectedItem} onClose={() => setSelectedItem(null)} />
       )}
     </>
+  );
+}
+
+function Modal({
+  item,
+  onClose,
+}: {
+  item: MasonryItem;
+  onClose: () => void;
+}) {
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (overlayRef.current && modalRef.current) {
+      gsap.fromTo(
+        overlayRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.3, ease: "power2.out" }
+      );
+      gsap.fromTo(
+        modalRef.current,
+        { scale: 0.95, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }
+      );
+    }
+
+    const closeOnEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") handleClose();
+    };
+    window.addEventListener("keydown", closeOnEsc);
+    return () => window.removeEventListener("keydown", closeOnEsc);
+  }, []);
+
+  const handleClose = () => {
+    gsap.to(overlayRef.current, { opacity: 0, duration: 0.3 });
+    gsap.to(modalRef.current, {
+      scale: 0.95,
+      opacity: 0,
+      duration: 0.3,
+      onComplete: onClose,
+    });
+  };
+
+  return (
+    <div
+      ref={overlayRef}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-md"
+      onClick={handleClose}
+    >
+      <div
+        ref={modalRef}
+        onClick={(e) => e.stopPropagation()}
+        className="bg-neutral-900 text-white p-6 rounded-lg w-[800px] h-[600px] overflow-hidden relative flex flex-col"
+      >
+        <button
+          className="absolute top-2 right-2 text-white text-2xl"
+          onClick={handleClose}
+        >
+          ✕
+        </button>
+        <div className="flex-1 overflow-auto space-y-4">
+          <img
+            src={item.image}
+            alt={item.title}
+            className="w-full h-[300px] object-cover rounded"
+          />
+          <h2 className="text-xl font-bold">{item.title}</h2>
+          <p>{item.description}</p>
+          {item.links && (
+            <div className="flex justify-center mt-4 gap-3">
+              {item.links.map((link, idx) => (
+                <a
+                  key={idx}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-black p-3 rounded-full hover:bg-gray-300 transition"
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }
 
