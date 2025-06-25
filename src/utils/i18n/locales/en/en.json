@@ -1,0 +1,19 @@
+{
+    "intro_desc": "Hi, I'm Saúl and I'm a software developer and a game developer. I studied programming and later a Specialisation Course in Videogames, where I learnt 3D modelling and animation and videogame-oriented programming. I also do sound and music design. On this website you can see some of the projects I have worked on.",
+    "intro_desc2": "You can reach me at saulespanaara3@gmail.com",
+    "project_title": "Projects",
+    "lsd_subtitle": "3D platformer for Windows and Linux devices.",
+    "lsd_desc": "Lethal Soap Dispenser is a classic 3D platformer and puzzle game in which you must make the citizens happy in order to advance in your journey! This game was done for Global Game Jam 2025.",
+    "night_subtitle": "Endless Runner for Android devices.",
+    "night_desc": "Nighmare Run is an Endless Runner type game where you will be continuously chased by death. Try to run as far as possible with the help of powerups and your skill. The more distance you run the higher your score. So do your best!",
+    "scale_subtitle": "3D platformer videogame for Windows devices.",
+    "scale_desc": "Gecko Elders proudly tell of their descent from Dragons, but fewer and fewer people believe these stories, including Endal. However, after finding a mysterious giant Scale that gave him the power to resize the world around him, Endal decided to embark on an adventure in the search of its origin. Embark in an adventure of Great Scales and help Endal find the 5 Power Scales!",
+    "marble_desc": "A small game developed on React with three.js. Part of threejs-journey course.",
+    "eom_desc": "A 2D action game developed with Godot. Defeat the five bosses without losing.",
+    "justas_desc": "Get on your horse, grab your lance and shield and get ready to fight exciting duels that will test your combat and strategy skills!",
+    "mix1_desc": "This pack is a mix of sound effects that I did for gamejams and old projects.",
+    "music_title": "Music",
+    "socials_title": "Socials",
+    "other_projects": "Other projects",
+    "socials_desc": "On my social media you can find more about me and updates about my projects"
+}

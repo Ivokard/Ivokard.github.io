@@ -1,0 +1,19 @@
+{
+    "intro_desc": "Hola, soy Saúl y soy desarrollador de software y de videojuegos. Estudié programación y posteriormente un Curso de Especialización en Videojuegos, donde aprendí modelado y animación 3D y programación orientada a videojuegos. También hago diseño de sonido y música. En esta web puedes ver algunos de los proyectos en los que he trabajado.",
+    "intro_desc2": "Puede ponerse en contacto conmigo en saulespanaara3@gmail.com",
+    "project_title": "Proyectos",
+    "lsd_subtitle": "Juego de plataformas en 3D para dispositivos Windows y Linux.",
+    "lsd_desc": "Lethal Soap Dispenser es un juego clásico de plataformas y puzles en 3D en el que debes hacer felices a los ciudadanos para avanzar en tu viaje. Este juego se hizo para Global Game Jam 2025.",
+    "night_subtitle": "Juego tipo Endless Runner para dispositivos Android.",
+    "night_desc": "Nighmare Run es un juego tipo Endless Runner en el que te perseguirá continuamente la muerte. Intenta correr lo más lejos posible con la ayuda de potenciadores y tu habilidad. Cuanta más distancia recorras, mayor será tu puntuación. ¡Hazlo lo mejor que puedas!",
+    "scale_subtitle": "Videojuego de plataformas en 3D para dispositivos Windows.",
+    "scale_desc": "Los Ancianos Gecko cuentan con orgullo que descienden de los Dragones, pero cada vez menos gente cree estas historias, incluido Endal. Sin embargo, tras encontrar una misteriosa escama gigante que le dio el poder de redimensionar el mundo a su alrededor, Endal decidió embarcarse en una aventura en busca de su origen. ¡Embárcate en una aventura de Grandes Balanzas y ayuda a Endal a encontrar las 5 Balanzas de Poder!",
+    "marble_desc": "Un pequeño juego desarrollado en React con three.js. Parte del curso threejs-journey.",
+    "eom_desc": "Un juego de acción 2D desarrollado con Godot. Derrota a los cinco jefes sin perder.",
+    "justas_desc": "¡Súbete a tu caballo, coge tu lanza y escudo y prepárate para batirte en apasionantes duelos que pondrán a prueba tus habilidades de combate y estrategia!",
+    "mix1_desc": "Este pack es una recopilación de efectos de sonido que hice para gamejams y viejos proyectos.",
+    "music_title": "Música",
+    "socials_title": "Redes sociales",
+    "other_projects": "Otros proyectos",
+    "socials_desc": "En mis redes sociales puedes encontrar más información sobre mí y actualizaciones sobre mis proyectos."
+}

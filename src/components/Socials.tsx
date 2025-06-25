@@ -1,12 +1,15 @@
 import { FaGithub, FaLinkedin, FaSoundcloud, FaYoutube, FaBandcamp, FaSpotify } from "react-icons/fa6"
 import { LuInstagram } from "react-icons/lu";
 import { FaItchIo, FaTiktok } from "react-icons/fa";
+import { useTranslation } from 'react-i18next'
 
 const Socials = () => {
+    const { t } = useTranslation()
+
     return (
         <div className="text-white relative z-10 flex flex-col items-center justify-center h-full text-center space-y-6 px-4">
             <p className="text-white text-lg leading-relaxed mt-4">
-                On my social media you can find more about me and updates about my work, projects and interests.
+                {t('socials_desc')}
             </p>
 
             <div className="flex space-x-4 mt-4 mb-7">

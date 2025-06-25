@@ -1,8 +1,11 @@
 import { FaGithub, FaLinkedin} from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
+import { useTranslation } from 'react-i18next'
 
 
 const IntroSection = () => {
+  const { t } = useTranslation()
+
   return (
     <div className="relative w-full h-screen overflow-hidden text-white">
       <video
@@ -23,12 +26,9 @@ const IntroSection = () => {
         <br>
         </br>
         <p className="text-lg md:text-2xl max-w-2xl">
-            Hi, I'm Saúl and I'm a software developer and a game developer.
-            I studied programming and later a Specialisation Course in Videogames, where I learnt 3D modelling and animation and videogame-oriented programming.
-            I also do sound and music design.
-            On this website you can see some of the projects I have worked on.
+            {t('intro_desc')}
             <br />
-            You can reach me at saulespanaara3@gmail.com
+            {t('intro_desc2')}
         </p>
 
         <div className="flex space-x-4 mt-4">
