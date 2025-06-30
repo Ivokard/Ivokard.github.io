@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin} from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
 import { useTranslation } from 'react-i18next'
 
@@ -26,9 +26,9 @@ const IntroSection = () => {
         <br>
         </br>
         <p className="text-lg md:text-2xl max-w-2xl">
-            {t('intro_desc')}
-            <br />
-            {t('intro_desc2')}
+          {t('intro_desc')}
+          <br />
+          {t('intro_desc2')}
         </p>
 
         <div className="flex space-x-4 mt-4">

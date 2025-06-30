@@ -12,12 +12,12 @@ const Socials = () => {
                 {t('socials_desc')}
             </p>
 
-            <div className="flex space-x-4 mt-4 mb-7">
+            <div className="flex flex-wrap gap-3 mt-4 mb-7">
                 <a
                     href="https://www.linkedin.com/in/saúl-españa-7aabaa26a/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white text-black p-3 rounded-full hover:bg-gray-300 transition"
+                    className="bg-white text-black p-2 md:p-3 rounded-full hover:bg-gray-300 transition"
                 >
                     <FaLinkedin size={24} />
                 </a>
@@ -25,7 +25,7 @@ const Socials = () => {
                     href="https://github.com/Ivokard"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white text-black p-3 rounded-full hover:bg-gray-300 transition"
+                    className="bg-white text-black p-2 md:p-3 rounded-full hover:bg-gray-300 transition"
                 >
                     <FaGithub size={24} />
                 </a>
@@ -33,23 +33,23 @@ const Socials = () => {
                     href="https://ivokard.itch.io"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white text-black p-3 rounded-full hover:bg-gray-300 transition"
+                    className="bg-white text-black p-2 md:p-3 rounded-full hover:bg-gray-300 transition"
                 >
                     <FaItchIo size={24} />
                 </a>
-                <a
+                {/* <a
                     href="https://www.tiktok.com/@ivokardmusic"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white text-black p-3 rounded-full hover:bg-gray-300 transition"
+                    className="bg-white text-black p-2 md:p-3 rounded-full hover:bg-gray-300 transition"
                 >
                     <FaTiktok size={24} />
-                </a>
+                </a> */}
                 <a
                     href="https://www.instagram.com/ivokard/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white text-black p-3 rounded-full hover:bg-gray-300 transition"
+                    className="bg-white text-black p-2 md:p-3 rounded-full hover:bg-gray-300 transition"
                 >
                     <LuInstagram size={24} />
                 </a>
@@ -57,7 +57,7 @@ const Socials = () => {
                     href="https://soundcloud.com/ivokard"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white text-black p-3 rounded-full hover:bg-gray-300 transition"
+                    className="bg-white text-black p-2 md:p-3 rounded-full hover:bg-gray-300 transition"
                 >
                     <FaSoundcloud size={24} />
                 </a>
@@ -65,7 +65,7 @@ const Socials = () => {
                     href="https://www.youtube.com/@ivokard"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white text-black p-3 rounded-full hover:bg-gray-300 transition"
+                    className="bg-white text-black p-2 md:p-3 rounded-full hover:bg-gray-300 transition"
                 >
                     <FaYoutube size={24} />
                 </a>
@@ -73,7 +73,7 @@ const Socials = () => {
                     href="https://ivokard.bandcamp.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white text-black p-3 rounded-full hover:bg-gray-300 transition"
+                    className="bg-white text-black p-2 md:p-3 rounded-full hover:bg-gray-300 transition"
                 >
                     <FaBandcamp size={24} />
                 </a>
@@ -81,7 +81,7 @@ const Socials = () => {
                     href="https://open.spotify.com/intl-es/artist/1CULdMxPZvF4r5DWa76BOL?si=hiMgLs1oRiW5OTCxrXmSNg"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white text-black p-3 rounded-full hover:bg-gray-300 transition"
+                    className="bg-white text-black p-2 md:p-3 rounded-full hover:bg-gray-300 transition"
                 >
                     <FaSpotify size={24} />
                 </a>

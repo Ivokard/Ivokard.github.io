@@ -34,9 +34,8 @@ export default function NavbarOverlay({ onClose }: NavbarOverlayProps) {
             <button
               key={item}
               onClick={() => setActiveMenu(item)}
-              className={`px-4 py-2 rounded-full ${
-                activeMenu === item ? "bg-white text-black" : "hover:underline"
-              }`}
+              className={`px-4 py-2 rounded-full ${activeMenu === item ? "bg-white text-black" : "hover:underline"
+                }`}
             >
               {item}
             </button>

@@ -1,7 +1,7 @@
 import useMeasure from "react-use-measure"
 import Card from "./components/Card"
 import { animate, motion, useMotionValue } from "motion/react"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { FaYoutube, FaSpotify, FaBandcamp, FaSoundcloud, FaApple } from "react-icons/fa"
 
 interface CardData {
@@ -30,7 +30,7 @@ export default function Carousel() {
         { platform: "youtube", url: "https://www.youtube.com/watch?v=YwvVxj9CqCA" },
         { platform: "soundcloud", url: "https://soundcloud.com/ivokard/photonic-pace" },
         { platform: "bandcamp", url: "https://ivokard.bandcamp.com/track/photonic-pace" }
-      ],    
+      ],
     },
     {
       image: "./images/bubblejpg.jpg",
@@ -39,7 +39,7 @@ export default function Carousel() {
         { platform: "youtube", url: "https://www.youtube.com/watch?v=fa7I0oaiJ6o" },
         { platform: "soundcloud", url: "https://soundcloud.com/ivokard/bubbles" },
         { platform: "bandcamp", url: "https://ivokard.bandcamp.com/track/bubbles" }
-      ],    
+      ],
     },
     {
       image: "./images/cloudy.png",
@@ -66,7 +66,7 @@ export default function Carousel() {
         { platform: "spotify", url: "https://open.spotify.com/intl-es/album/1VgaHpVhXDZBbJmwARX0Av" },
         { platform: "youtube", url: "https://www.youtube.com/watch?v=F-K1BiFhClQ&list=OLAK5uy_mMmoWA3ol6LFbA7IHB4iYK0TLP1kPZV0k" },
         { platform: "bandcamp", url: "https://ivokard.bandcamp.com/album/letargo" }
-    ],
+      ],
     },
   ];
 
@@ -79,24 +79,23 @@ export default function Carousel() {
     other: <FaYoutube size={20} />,
   }
 
-  const FAST_DURATION = 30;
-  const SLOW_DURATION = 90;
+  const FAST_DURATION = 20
+  const SLOW_DURATION = 90
 
   const [duration, setDuration] = useState(FAST_DURATION)
   const [isDragging, setIsDragging] = useState(false)
   const [autoPlay, setAutoPlay] = useState(true)
 
-  let [ref, { width }] = useMeasure()
+  const [ref, { width }] = useMeasure()
   const xTranslation = useMotionValue(0)
   const [mustFinish, setMustFinish] = useState(false)
-  const [rerender, setRerender] = useState(false)
 
   const contentWidth = cardsData.length * (400 + 32)
 
   const dragConstraints = {
     left: -contentWidth,
     right: 0,
-  };
+  }
 
   const restartAutoAnimation = () => {
     const currentX = xTranslation.get()
@@ -105,13 +104,13 @@ export default function Carousel() {
     }
     setAutoPlay(true)
     setIsDragging(false)
-  };
+  }
 
   useEffect(() => {
-    if (!autoPlay || isDragging) return;
+    if (!autoPlay || isDragging) return
 
-    let controls;
-    let finalPos = -width / 2 - 8;
+    let controls
+    let finalPos = -contentWidth / 2
 
     if (mustFinish) {
       controls = animate(xTranslation, [xTranslation.get(), finalPos], {
@@ -119,9 +118,8 @@ export default function Carousel() {
         duration: duration * (1 - xTranslation.get() / finalPos),
         onComplete: () => {
           setMustFinish(false)
-          setRerender(!rerender)
         },
-      });
+      })
     } else {
       controls = animate(xTranslation, [0, finalPos], {
         ease: "linear",
@@ -129,36 +127,37 @@ export default function Carousel() {
         repeat: Infinity,
         repeatType: "loop",
         repeatDelay: 0,
-      });
+      })
     }
-    return controls?.stop;
-  }, [xTranslation, width, duration, rerender, autoPlay, isDragging]);
+    return controls?.stop
+  }, [xTranslation, width, duration, autoPlay, isDragging, mustFinish])
 
   return (
     <main className="py-8 overflow-hidden z-20">
       <motion.div
+        key={width}
         className="left-0 flex gap-8 max-content cursor-grab active:cursor-grabbing"
         ref={ref}
         style={{ x: xTranslation }}
         drag="x"
         dragConstraints={dragConstraints}
         onDragStart={() => {
-          setIsDragging(true);
-          setAutoPlay(false);
+          setIsDragging(true)
+          setAutoPlay(false)
         }}
         onDragEnd={() => {
-          setTimeout(restartAutoAnimation, 2000);
+          setTimeout(restartAutoAnimation, 2000)
         }}
         onHoverStart={() => {
           if (!isDragging) {
-            setMustFinish(true);
-            setDuration(SLOW_DURATION);
+            setMustFinish(true)
+            setDuration(SLOW_DURATION)
           }
         }}
         onHoverEnd={() => {
           if (!isDragging) {
-            setMustFinish(true);
-            setDuration(FAST_DURATION);
+            setMustFinish(true)
+            setDuration(FAST_DURATION)
           }
         }}
       >
@@ -170,15 +169,15 @@ export default function Carousel() {
             links={
               cardData.links
                 ? cardData.links.map((link) => ({
-                    icon: platformIcons[link.platform] || platformIcons["other"],
-                    label: link.platform.charAt(0).toUpperCase() + link.platform.slice(1),
-                    url: link.url,
-                  }))
+                  icon: platformIcons[link.platform] || platformIcons["other"],
+                  label: link.platform.charAt(0).toUpperCase() + link.platform.slice(1),
+                  url: link.url,
+                }))
                 : []
             }
           />
         ))}
       </motion.div>
     </main>
-  );
+  )
 }
