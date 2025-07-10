@@ -19,43 +19,43 @@ export default function App() {
 
   //Masonry data
   const data = [
-  {
-    id: 1,
-    image: 'images/marble.jpg',
-    height: 600,
-    title: 'Marble Race Demo',
-    description: t('marble_desc'),
-    links: [{ icon: <FaGithub size={24} />, url: "https://github.com/Ivokard/React-Threejs-GameDemo" }]
-  },
+    {
+      id: 1,
+      image: 'images/marble.jpg',
+      height: 600,
+      title: 'Marble Race Demo',
+      description: t('marble_desc'),
+      links: [{ icon: <FaGithub size={24} />, url: "https://github.com/Ivokard/React-Threejs-GameDemo" }]
+    },
 
-  {
-    id: 2,
-    image: 'images/eom.png',
-    height: 600,
-    title: 'Edge of Madness',
-    description: t('eom_desc'),
-    links: [{ icon: <FaItchIo size={24} />, url: "https://morphingames.itch.io/edge-of-madness" }]
-  },
+    {
+      id: 2,
+      image: 'images/eom.png',
+      height: 600,
+      title: 'Edge of Madness',
+      description: t('eom_desc'),
+      links: [{ icon: <FaItchIo size={24} />, url: "https://morphingames.itch.io/edge-of-madness" }]
+    },
 
-  {
-    id: 3,
-    image: 'images/jrj.png',
-    height: 600,
-    title: 'Justas Rejustas',
-    description: t('justas_desc'),
-    links: [{ icon: <FaItchIo size={24} />, url: "https://morphingames.itch.io/justas-rejustas" }]
-  },
+    {
+      id: 3,
+      image: 'images/jrj.png',
+      height: 600,
+      title: 'Justas Rejustas',
+      description: t('justas_desc'),
+      links: [{ icon: <FaItchIo size={24} />, url: "https://morphingames.itch.io/justas-rejustas" }]
+    },
 
-  {
-    id: 4,
-    image: 'images/banner_pack.png',
-    height: 600,
-    title: 'Mix of SFX',
-    description: t('mix1_desc'),
-    links: [{ icon: <FaItchIo size={24} />, url: "https://ivokard.itch.io/mix-of-sfx" }]
-  },
+    {
+      id: 4,
+      image: 'images/banner_pack.png',
+      height: 600,
+      title: 'Mix of SFX',
+      description: t('mix1_desc'),
+      links: [{ icon: <FaItchIo size={24} />, url: "https://ivokard.itch.io/mix-of-sfx" }]
+    },
 
-]
+  ]
   useEffect(() => {
     function update(time) {
       lenisRef.current?.lenis?.raf(time * 1000)
@@ -82,7 +82,7 @@ export default function App() {
 
         <div id="projects" className="relative w-full z-20">
           <div className="absolute top-0 left-0 w-full">
-            <SplitText text= {t('project_title')} />
+            <SplitText text={t('project_title')} />
           </div>
           <div>
             <ProjectLayout
@@ -112,7 +112,7 @@ export default function App() {
           <div>
             <ProjectLayout
               title="Scale Tale"
-              shortDescription= {t('scale_subtitle')}
+              shortDescription={t('scale_subtitle')}
               description={t('scale_desc')}
               images={['images/scaletale.webp', 'images/scale_tale_02.webp', 'images/scale_tale_03.webp']}
               links={[
